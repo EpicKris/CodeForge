@@ -1,0 +1,85 @@
+//
+// Fonts
+// --------------------------------------------------
+
+#body-auth {
+	background-color: @body-auth-bg;
+	&:before {
+		background-image: url(@body-auth-bg-url);
+		background-attachment: fixed;
+		background-position: center center;
+		background-size: cover;
+		.animation-name(hue);
+		.animation-duration(60s);
+		.animation-iteration-count(infinite);
+	}
+
+	.site-wrapper();
+}
+
+.form-auth {
+	max-width: 330px;
+	padding: @padding-large-vertical @padding-large-horizontal;
+	margin: 0 auto;
+
+	.auth-heading,
+	.checkbox {
+		margin-top: 0;
+		margin-bottom: (@line-height-computed / 2);
+		.text-center();
+	}
+
+	.form-control {
+		position: relative;
+		height: auto;
+		.box-sizing(border-box);
+		padding: @padding-large-vertical @padding-large-horizontal;
+		font-size: @font-size-large;
+	}
+	.form-control:focus {
+		z-index: 6;
+	}
+
+	.group {
+		width: 100%;
+	}
+	.form-group {
+		margin: 0;
+	}
+
+	.form-group-label,
+	label {
+		.sr-only();
+	}
+
+	.form-group {
+		&:first-of-type input {
+			margin-bottom: -1px;
+			.border-top-radius(@border-radius-large);
+		}
+		&:last-of-type input {
+			margin-bottom: (@line-height-computed / 2);
+			.border-bottom-radius(@border-radius-large);
+		}
+		&:only-of-type input {
+			margin-bottom: (@line-height-computed / 2);
+			.border-top-radius(@border-radius-large);
+			.border-bottom-radius(@border-radius-large);
+		}
+		input {
+			margin-bottom: -1px;
+			.border-top-radius(0);
+			.border-bottom-radius(0);
+		}
+	}
+
+	.has-error input {
+		z-index: 5;
+	}
+	.has-warning input {
+		z-index: 4;
+	}
+	.has-success input {
+		z-index: 3;
+	}
+}

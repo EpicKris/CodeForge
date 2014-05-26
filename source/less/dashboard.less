@@ -1,0 +1,93 @@
+//
+// Dashboard
+// --------------------------------------------------
+
+// Body
+#body-dashboard {
+	padding-top: @navbar-height;
+}
+
+// Sidebar
+.sidebar {
+	.hidden();
+}
+@media (min-width: @screen-sm-min) {
+	.sidebar {
+		position: fixed;
+		top: (@navbar-height + 1);
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		padding: 20px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color: @sidebar-bg;
+		border-right: 1px solid @sidebar-border-color;
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+.nav-sidebar {
+	margin-bottom: @line-height-computed;
+
+	> li {
+		> a {
+			padding: @padding-large-vertical @padding-large-horizontal;
+		}
+	}
+
+	&.active > a {
+		&,
+		&:hover,
+		&:focus {
+			color: @nav-sidebar-active-link-hover-color;
+			background-color: @nav-sidebar-active-link-hover-bg;
+		}
+	}
+}
+
+// Main
+.main {
+	padding: @padding-large-vertical @padding-large-horizontal;
+
+	.page-header {
+		margin-top: 0;
+	}
+}
+
+// Placeholders
+.placeholders {
+	margin-bottom: (@line-height-computed * 1.5);
+	text-align: center;
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4 {
+		margin-bottom: 0;
+	}
+
+	img {
+		display: inline-block;
+		.border-top-radius(50%);
+		.border-bottom-radius(50%);
+	}
+}
+
+// Announcements
+h1.announcement,
+h2.announcement,
+p.announcement {
+	margin: 0;
+}
+h1.announcement,
+h2.announcement {
+	font-weight: 100;
+}
+h1.announcement {
+	font-size: floor(@font-size-h1 * 1.4);
+}
+h2.announcement {
+	font-size: floor(@font-size-h2 * 1.4);
+}

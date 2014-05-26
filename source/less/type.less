@@ -1,0 +1,33 @@
+//
+// Load type
+// --------------------------------------------------
+
+// Page header
+.page-header {
+	&-nav {
+		padding: 0;
+	}
+
+	h1, .h1 {
+		margin: 0;
+		padding-bottom: ((@line-height-computed / 2) - 1);
+	}
+
+	.nav-tabs {
+		margin-top: ((@line-height-computed / 2) - 1);
+		margin-bottom: -1px;
+		border-color: @page-header-border-color;
+
+		li.active a {
+			border-top-color: @page-header-border-color;
+			border-right-color: @page-header-border-color;
+			border-left-color: @page-header-border-color;
+		}
+	}
+}
+
+// Sub header
+.sub-header {
+	padding-bottom: ((@line-height-computed / 2) - 1);
+	border-bottom: 1px solid @page-header-border-color;
+}

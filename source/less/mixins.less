@@ -1,0 +1,117 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Icons
+.icon() when (@icons = 'font') {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: "Glyphish";
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: none;
+	text-rendering: optimizeLegibility;
+	white-space: nowrap;
+	-moz-font-feature-settings: liga=1;
+	-moz-font-feature-settings: liga;
+	-ms-font-feature-settings: liga 1;
+	-o-font-feature-settings: liga;
+	font-feature-settings: liga;
+
+	.selected {
+		font-weight: bold;
+	}
+}
+.icon() when (@icons = 'svg') {
+	
+}
+.icon(@name, @content) when (@icons = 'font') {
+	.icon-@{name} {
+		&:before {
+			content: @content;
+		}
+	}
+}
+.icon(@name, @file) when (@icons = 'svg') {
+	.icon-@{name} {
+		
+	}
+}
+
+// Social
+.social() {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: "Social";
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: none;
+	text-rendering: optimizeLegibility;
+	white-space: nowrap;
+	-moz-font-feature-settings: liga=1;
+	-moz-font-feature-settings: liga;
+	-ms-font-feature-settings: liga 1;
+	-o-font-feature-settings: liga;
+	font-feature-settings: liga;
+
+	.selected {
+		font-weight: bold;
+	}
+}
+.social(@name, @content) {
+	.social-@{name} {
+		&:before {
+			content: @content;
+		}
+	}
+}
+
+// Filters
+.hue(@degrees) {
+	-webkit-filter: hue-rotate(@degrees);
+	        filter: hue-rotate(@degrees);
+}
+
+// Site wrapper
+.site-wrapper() {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: "";
+	&:before {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		content: "";
+		z-index: -1;
+	}
+
+	.site-wrapper {
+		display: table;
+		width: 100%;
+		height: 100%;
+		min-height: 100%;
+	
+		&-inner {
+			display: table-cell;
+			vertical-align: top;
+		}
+	}
+	@media (min-width: @screen-sm-min) {
+		.site-wrapper-inner {
+			vertical-align: middle;
+		}
+	}
+}

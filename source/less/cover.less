@@ -1,0 +1,124 @@
+//
+// Cover
+// --------------------------------------------------
+
+#body-cover {
+	background-color: @body-cover-bg;
+	color: @body-cover-color;
+	text-align: center;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+	.box-shadow(0 0 100px rgba(0, 0, 0, .5));
+
+	a,
+	a:hover,
+	a:focus {
+		color: @body-cover-color;
+	}
+
+	.btn-default,
+	.btn-default:hover,
+	.btn-default:focus {
+		color: @body-cover-bg;
+		text-shadow: none;
+		background-color: @body-cover-color;
+		border: 1px solid @body-cover-color;
+	}
+
+	.site-wrapper();
+}
+
+.cover-container {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.inner {
+	padding: @padding-large-vertical @padding-large-horizontal;
+}
+
+.brand-masthead {
+	margin-top: (@line-height-computed / 2);
+	margin-bottom: (@line-height-computed / 2);
+}
+
+.nav-masthead {
+	> li {
+		margin-top: (@line-height-computed / 2);
+		margin-bottom: (@line-height-computed / 2);
+
+		+ li {
+			margin-left: @line-height-computed;
+		}
+
+		> a {
+			padding-right: 0;
+			padding-left: 0;
+			font-size: @font-size-large;
+			font-weight: 500;
+			color: @body-cover-color;
+			color: @cover-color-alpha;
+			border-bottom: 2px solid transparent;
+		}
+		> a:hover,
+		> a:focus {
+			background-color: transparent;
+			border-bottom-color: @nav-masthead-border-color;
+		}
+	}
+
+	&.active > a {
+		&,
+		&:hover,
+		&:focus {
+			border-bottom-color: @nav-masthead-link-hover-border-color;
+		}
+	}
+}
+
+@media (min-width: @screen-sm-min) {
+	.brand-masthead {
+		float: left;
+	}
+	.nav-masthead {
+		float: right;
+	}
+}
+
+.cover {
+	padding: 0 @padding-large-horizontal;
+
+	.btn-lg {
+		padding: @padding-large-vertical @padding-large-horizontal;
+		font-weight: 500;
+	}
+}
+
+.mastfoot {
+	color: @cover-mastfoot-color;
+	color: @cover-mastfoot-color-alpha;
+}
+
+@media (min-width: @screen-sm-min) {
+	.masthead {
+		position: fixed;
+		top: 0;
+	}
+	.mastfoot {
+		position: 0;
+		bottom: 0;
+	}
+
+	.masthead,
+	.mastfoot,
+	.cover-container {
+		width: 100%;
+	}
+}
+
+@media (min-width: @screen-md-min) {
+	.masthead,
+	.mastfoot,
+	.cover-container {
+		width: 700px;
+	}
+}

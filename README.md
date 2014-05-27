@@ -23,10 +23,9 @@ CodeForge uses [Node](http://nodejs.org), [NPM](https://www.npmjs.org) and [Grun
 
 ### Install Node, NPM & Grunt
 1. Download and install [Node](http://nodejs.org)
-2. Download and install [Grunt](http://gruntjs.com)
 From the command line:
-3. Run `npm install -g grunt-cli`
-4. `cd` to the CodeForge directory, then run `npm install`
+2. Run `sudo npm install -g grunt-cli`
+3. `cd` to the CodeForge directory, then run `npm install`
 NPM will automatically install the necessary local dependencies listed there.
 
 ### Available Commands

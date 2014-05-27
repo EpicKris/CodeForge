@@ -22,16 +22,16 @@
 	<body id="body-auth">
 
 		<div class="site-wrapper">
-		    <div class="site-wrapper-inner">
-		    	<?php
-		    	$attributes = array(
-		    	    'class' => 'form-auth',
-		    	    'role' => 'form'
-		    	);
-		    	echo form_open('auth', $attributes);
-		    	?>
-		    	    <h1 class="auth-heading">Sign In</h1>
-		    	    <div class="group">
+			<div class="site-wrapper-inner">
+				<?php
+				$attributes = array(
+					'class' => 'form-auth',
+					'role' => 'form'
+				);
+				echo form_open('auth', $attributes);
+				?>
+					<h1 class="auth-heading">Sign In</h1>
+					<div class="group">
 						<div class="form-group<?php if (form_error('user') !== '') echo ' has-error'; ?>">
 							<label for="user">Username</label>
 							<input type="text" name="user" class="form-control" id="user" placeholder="Username" required autofocus>
@@ -40,10 +40,10 @@
 							<label for="pass">Password</label>
 							<input type="password" name="pass" class="form-control" id="pass" placeholder="Password" required>
 						</div>
-		    	    </div>
-		    	    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-		    	</form>
-		    </div>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+				</form>
+			</div>
 		</div>
 
 		<!-- JS -->

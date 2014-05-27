@@ -5,7 +5,7 @@ class Ldap_core {
 	private $CI;
 
 	/**
-	 * Server
+	 * Server.
 	 * 
 	 * @var string
 	 * @access private
@@ -13,7 +13,7 @@ class Ldap_core {
 	private $server;
 
 	/**
-	 * Server DN.
+	 * Server search base.
 	 * 
 	 * @var string
 	 * @access private
@@ -37,6 +37,8 @@ class Ldap_core {
 		}
 
 		$config = $this->CI->config->load('ldap', TRUE, TRUE);
+		$config = $this->CI->config->item('ldap')['ldap'];
+
 		if (isset($config['server'])) $this->server = $config['server'];
 		if (isset($config['server_dn'])) $this->server_dn = $config['server_dn'];
 	}

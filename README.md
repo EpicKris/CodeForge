@@ -35,3 +35,10 @@ Run `grunt` to compile the source into `build`.
 
 #### Reset - `grunt reset`
 Run `grunt reset` to clean all builds, you will have to re-run the build again.
+
+## Creating Themes
+CodeForge allows you to create themes.
+
+1. Go to `source/less`, then duplicate the file `theme-template.less`
+2. Rename the duplicated file like `theme-example.less`
+3. Include your compiled theme in any views

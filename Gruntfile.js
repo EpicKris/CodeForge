@@ -124,7 +124,10 @@ module.exports = function(grunt) {
 				}, {
 					expand: true,
 					cwd: 'source/less/',
-					src: 'theme-*.less',
+					src: [
+						'theme-*.less',
+						'!theme-template.less'
+					],
 					dest: 'build/resources/css/',
 					ext: '.css',
 					rename: function(dest, src) {
@@ -144,7 +147,10 @@ module.exports = function(grunt) {
 				}, {
 					expand: true,
 					cwd: 'source/less/',
-					src: 'theme-*.less',
+					src: [
+						'theme-*.less',
+						'!theme-template.less'
+					],
 					dest: 'build/resources/css/',
 					ext: '.min.css',
 					rename: function(dest, src) {

@@ -115,3 +115,13 @@
 		}
 	}
 }
+
+// Progress bars
+.progress-bar(@color) when (lightness(@color) <= 50%) {
+	#gradient > .vertical(@start-color: @color; @end-color: darken(@color, 10%));
+	color: #fff;
+}
+.progress-bar(@color) when (lightness(@color) > 50%) {
+	#gradient > .vertical(@start-color: @color; @end-color: darken(@color, 10%));
+	color: #000;
+}

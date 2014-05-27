@@ -64,6 +64,7 @@ module.exports = function(grunt) {
 					cwd: 'source/',
 					src: [
 						'.htaccess',
+						'favicon.ico',
 						'application/**',
 						'resources/**'
 					],

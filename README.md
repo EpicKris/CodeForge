@@ -2,16 +2,15 @@
 CodeForge is a framework for quick web development.
 
 ## Third-Party Packages
-
-### The following open source packages are included in this framework:
+**The following open source packages are included in this framework:**
 - [BootStrap](https://github.com/twbs/bootstrap) v3.1.1
 - [Ratchet](https://github.com/twbs/ratchet) v2.0.2
 - [CodeIgniter](https://github.com/EllisLab/CodeIgniter) v2.1.4
 
-### The following open source packages are referenced in this framework:
+**The following open source packages are referenced in this framework:**
 - [jQuery](https://github.com/jquery/jquery) v1.11.0
 
-### The following packages are restricted in this framework*:
+**The following packages are restricted in this framework*:**
 - [Glober](http://fontfabric.com/glober-free-font/)
 - [Glyphish](http://www.glyphish.com) 6 & 7
 - [SS Glyphish](http://symbolset.com/icons/glyphish)

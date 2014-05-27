@@ -9,23 +9,28 @@
 
 // Sidebar
 .sidebar {
-	.hidden();
+	display: none;
+	position: fixed;
+	top: (@navbar-height + 1);
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: @sidebar-bg;
+	border-right: 1px solid @sidebar-border-color;
+	padding-right: 0;
+	padding-left: 0;
+	#gradient > .vertical(@start-color: lighten(@navbar-default-bg, 10%); @end-color: @navbar-default-bg);
+	.reset-filter();
+	@shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
+	.box-shadow(@shadow);
 }
 @media (min-width: @screen-sm-min) {
 	.sidebar {
-		position: fixed;
-		top: (@navbar-height + 1);
-		bottom: 0;
-		left: 0;
-		z-index: 1000;
 		display: block;
-		padding: 20px;
-		overflow-x: hidden;
-		overflow-y: auto;
-		background-color: @sidebar-bg;
-		border-right: 1px solid @sidebar-border-color;
-		padding-right: 0;
-		padding-left: 0;
 	}
 }
 .nav-sidebar {

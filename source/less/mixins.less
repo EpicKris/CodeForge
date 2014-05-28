@@ -4,25 +4,28 @@
 
 // Icons
 .icon() when (@icons = 'font') {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	font-family: "Glyphish";
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-decoration: none;
-	text-rendering: optimizeLegibility;
-	white-space: nowrap;
-	-moz-font-feature-settings: liga=1;
-	-moz-font-feature-settings: liga;
-	-ms-font-feature-settings: liga 1;
-	-o-font-feature-settings: liga;
-	font-feature-settings: liga;
-	&.selected {
-		font-weight: bold;
+	height: 80%;
+	&:before {
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		font-family: "Glyphish";
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-decoration: none;
+		text-rendering: optimizeLegibility;
+		white-space: nowrap;
+		-moz-font-feature-settings: liga=1;
+		-moz-font-feature-settings: liga;
+		-ms-font-feature-settings: liga 1;
+		-o-font-feature-settings: liga;
+		font-feature-settings: liga;
+		&.selected {
+			font-weight: bold;
+		}
 	}
 }
 .icon() when (@icons = 'svg') {

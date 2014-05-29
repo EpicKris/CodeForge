@@ -4,7 +4,6 @@
 
 // Icons
 .icon() when (@icons = 'font') {
-	height: 80%;
 	&:before {
 		position: relative;
 		top: 1px;
@@ -23,9 +22,9 @@
 		-ms-font-feature-settings: liga 1;
 		-o-font-feature-settings: liga;
 		font-feature-settings: liga;
-		&.selected {
-			font-weight: bold;
-		}
+	}
+	&.selected:before {
+		font-weight: bold;
 	}
 }
 .icon() when (@icons = 'svg') {
@@ -46,25 +45,26 @@
 
 // Social
 .social() {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	font-family: "Social";
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-decoration: none;
-	text-rendering: optimizeLegibility;
-	white-space: nowrap;
-	-moz-font-feature-settings: liga=1;
-	-moz-font-feature-settings: liga;
-	-ms-font-feature-settings: liga 1;
-	-o-font-feature-settings: liga;
-	font-feature-settings: liga;
-
-	.selected {
+	&:before {
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		font-family: "Social";
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-decoration: none;
+		text-rendering: optimizeLegibility;
+		white-space: nowrap;
+		-moz-font-feature-settings: liga=1;
+		-moz-font-feature-settings: liga;
+		-ms-font-feature-settings: liga 1;
+		-o-font-feature-settings: liga;
+		font-feature-settings: liga;
+	}
+	&.selected:before {
 		font-weight: bold;
 	}
 }

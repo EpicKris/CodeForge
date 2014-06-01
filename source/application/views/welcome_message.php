@@ -42,9 +42,7 @@
 							<hr>
 							<p>If you are exploring CodeForge for the very first time, you should start by reading the <a href="/docs">Documentation</a>.</p>
 						</div>
-						<div class="panel-footer">
-							<p>Page rendered in <strong>{elapsed_time}</strong> seconds</p>
-						</div>
+						<div class="panel-footer">Page rendered in <strong>{elapsed_time}</strong> seconds</div>
 					</div>
 
 				</div>

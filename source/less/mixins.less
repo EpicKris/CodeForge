@@ -30,14 +30,14 @@
 .icon() when (@icons = 'svg') {
 	
 }
-.icon(@name, @content) when (@icons = 'font') {
+.icon(@type, @name, @content) when (@type = 'font') {
 	.icon-@{name} {
 		&:before {
 			content: @content;
 		}
 	}
 }
-.icon(@name, @file) when (@icons = 'svg') {
+.icon(@type, @name, @file) when (@type = 'svg') {
 	.icon-@{name} {
 		
 	}

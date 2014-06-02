@@ -11,7 +11,7 @@
 .sidebar {
 	display: none;
 	position: fixed;
-	top: (@navbar-height + 1);
+	top: 0;
 	bottom: 0;
 	left: 0;
 	z-index: 1000;
@@ -23,6 +23,13 @@
 	border-right: 1px solid @sidebar-border-color;
 	padding-right: 0;
 	padding-left: 0;
+
+	&.sidebar-nav-fixed-top {
+		top: (@navbar-height + 1);
+	}
+	&.sidebar-nav-fixed-bottom {
+		bottom: (@navbar-height + 1);
+	}
 }
 @media (min-width: @screen-sm-min) {
 	.sidebar {

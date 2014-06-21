@@ -96,6 +96,11 @@
 .mastfoot {
 	color: @cover-mastfoot-color;
 	color: @cover-mastfoot-color-alpha;
+
+	.navbar {
+		margin-left: @padding-large-horizontal;
+		margin-right: @padding-large-horizontal;
+	}
 }
 
 @media (min-width: @screen-sm-min) {
@@ -104,7 +109,7 @@
 		top: 0;
 	}
 	.mastfoot {
-		position: 0;
+		position: fixed;
 		bottom: 0;
 	}
 

@@ -67,7 +67,7 @@ class Ldap_core {
 	}
 
 	/**
-	 * Set server DN.
+	 * Set server search base.
 	 * 
 	 * @access public
 	 * @param string $server_dn
@@ -78,7 +78,7 @@ class Ldap_core {
 	}
 
 	/**
-	 * Get server DN.
+	 * Get server search base.
 	 * 
 	 * @access public
 	 * @return string|boolean

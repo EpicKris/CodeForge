@@ -13,7 +13,7 @@ class Snmp_core {
 	private $hostname;
 
 	/**
-	 * timeout.
+	 * Timeout.
 	 * 
 	 * (default value: 200000)
 	 * 

@@ -93,7 +93,10 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: 'source/packages/bootstrap/dist/',
-					src: '**',
+					src: [
+						'fonts/**',
+						'js/**'
+					],
 					dest: 'build/resources/'
 				}, {
 					expand: true,
@@ -116,23 +119,23 @@ module.exports = function(grunt) {
 			build: {
 				options: {
 					sourceMap: true,
-					sourceMapURL: '<%= pkg.name.toLowerCase() %>-theme.css.map',
-					sourceMapFilename: 'build/resources/css/<%= pkg.name.toLowerCase() %>-theme.css.map'
+					sourceMapURL: '<%= pkg.name.toLowerCase() %>.css.map',
+					sourceMapFilename: 'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.css.map'
 				},
 				files: [{
-					'build/resources/css/<%= pkg.name.toLowerCase() %>-theme.css': 'source/less/theme.less'
+					'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.css': 'source/less/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.less'
 				}, {
 					expand: true,
 					cwd: 'source/less/',
 					src: [
-						'theme-*.less',
+						'theme*.less',
 						'!theme-template.less'
 					],
 					dest: 'build/resources/css/',
 					ext: '.css',
 					rename: function(dest, src) {
 						var path = require('path');
-						var pkg_name = '<%= pkg.name.toLowerCase() %>';
+						var pkg_name = '<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>';
 
 						return path.join(dest, pkg_name + '-' + path.basename(src));
 					}
@@ -143,7 +146,7 @@ module.exports = function(grunt) {
 					cleancss: true
 				},
 				files: [{
-					'build/resources/css/<%= pkg.name.toLowerCase() %>-theme.min.css': 'build/resources/css/<%= pkg.name.toLowerCase() %>-theme.css'
+					'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.min.css': 'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.css'
 				}, {
 					expand: true,
 					cwd: 'source/less/',
@@ -155,7 +158,7 @@ module.exports = function(grunt) {
 					ext: '.min.css',
 					rename: function(dest, src) {
 						var path = require('path');
-						var pkg_name = '<%= pkg.name.toLowerCase() %>';
+						var pkg_name = '<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>';
 
 						return path.join(dest, pkg_name + '-' + path.basename(src));
 					}
@@ -168,8 +171,8 @@ module.exports = function(grunt) {
 				banner: '<% banner %>'
 			},
 			build: {
-				src: 'build/resources/js/<%= pkg.name.toLowerCase() %>.js',
-				dest: 'build/resources/js/<%= pkg.name.toLowerCase() %>.min.js'
+				src: 'build/resources/js/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.js',
+				dest: 'build/resources/js/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>.min.js'
 			}
 		},
 
@@ -180,7 +183,7 @@ module.exports = function(grunt) {
 			},
 			files: {
 				src: [
-					'build/resources/css/<%= pkg.name.toLowerCase() %>-theme*.css'
+					'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>-theme*.css'
 				]
 			}
 		},

@@ -45,10 +45,11 @@ class Data_model extends CI_Model {
 	 * @access private
 	 * @param string $table
 	 * @param array $data
-	 * @return void
+	 * @return int
 	 */
 	private function create_item($table, $data) {
-		return $this->db->insert($table, $data);
+		$this->db->insert($table, $data);
+		return $this->db->insert_id();
 	}
 
 	/**
@@ -129,7 +130,7 @@ class Data_model extends CI_Model {
 	 * @return array
 	 */
 	private function search_items($table, $data, $config = array()) {
-		$config = array_merge_recursive(array(
+		$config = array_merge(array(
 			'strict' => FALSE,
 			'ands'   => FALSE
 		), $config);
@@ -138,6 +139,8 @@ class Data_model extends CI_Model {
 
 		$first = TRUE;
 		foreach ($data as $field => $search) {
+			if (strpos($field, '.') === FALSE) $field = $table . '.' . $field;
+
 			$and = FALSE;
 			if (is_array($config['ands'])) if (in_array($field, $config['ands'])) $and = TRUE;
 			if (is_array($search)) {
@@ -145,10 +148,10 @@ class Data_model extends CI_Model {
 					$this->search_build($field, $search, $and, $config['strict'], $first);
 					$first = FALSE;
 				}
+			} else {
+				$this->search_build($field, $search, $and, $config['strict'], $first);
+				$first = FALSE;
 			}
-
-			$this->search_build($field, $search, $and, $config['strict'], $first);
-			$first = FALSE;
 		}
 
 		$query = $this->db->get($table);

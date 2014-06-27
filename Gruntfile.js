@@ -183,7 +183,7 @@ module.exports = function(grunt) {
 			},
 			files: {
 				src: [
-					'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>-theme*.css'
+					'build/resources/css/<%= pkg.name.replace(/ /g, \'-\').toLowerCase() %>*.css'
 				]
 			}
 		},

@@ -131,26 +131,31 @@ class Data_model extends CI_Model {
 	 */
 	private function search_items($table, $data, $config = array()) {
 		$config = array_merge(array(
+			'first'  => TRUE,
 			'strict' => FALSE,
 			'ands'   => FALSE
 		), $config);
 
 		$this->joins($table);
 
-		$first = TRUE;
 		foreach ($data as $field => $search) {
-			if (strpos($field, '.') === FALSE) $field = $table . '.' . $field;
-
 			$and = FALSE;
 			if (is_array($config['ands'])) if (in_array($field, $config['ands'])) $and = TRUE;
+
+			if (strpos($field, '.') === FALSE) $field = $table . '.' . $field;
+
 			if (is_array($search)) {
-				foreach ($search as $search) {
-					$this->search_build($field, $search, $and, $config['strict'], $first);
-					$first = FALSE;
+				if ($config['strict']) {
+					$this->search_build($field, $search, $and, $config['strict'], $config['first']);
+				} else {
+					foreach ($search as $search_item) {
+						$this->search_build($field, $search_item, $and, $config['strict'], $config['first']);
+						$config['first'] = FALSE;
+					}
 				}
 			} else {
-				$this->search_build($field, $search, $and, $config['strict'], $first);
-				$first = FALSE;
+				$this->search_build($field, $search, $and, $config['strict'], $config['first']);
+				$config['first'] = FALSE;
 			}
 		}
 
@@ -206,7 +211,7 @@ class Data_model extends CI_Model {
 	 * 
 	 * @access private
 	 * @param string $field
-	 * @param string $search
+	 * @param string|array $search
 	 * @param boolean $and
 	 * @param boolean $strict
 	 * @param boolean $first
@@ -214,18 +219,22 @@ class Data_model extends CI_Model {
 	 */
 	private function search_build($field, $search, $and, $strict, $first) {
 		if ($first || $and) {
-		    if ($strict) {
-		    	$this->db->where($field, $search);
-		    } else {
-		    	$this->db->like($field, $search);
-		    }
-		    return;
+			if (is_array($search)) {
+				$this->db->where_in($field, $search);
+			} else if ($strict) {
+			    $this->db->where($field, $search);
+			} else {
+			    $this->db->like($field, $search);
+			}
+			return;
 		}
 
-		if ($strict) {
-		    $this->db->or_where($field, $search);
+		if (is_array($search)) {
+			$this->db->where_in($field, $search);
+		} else if ($strict) {
+			$this->db->or_where($field, $search);
 		} else {
-		    $this->db->or_like($field, $search);
+			$this->db->or_like($field, $search);
 		}
 	}
 }

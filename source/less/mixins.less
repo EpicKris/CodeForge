@@ -70,8 +70,23 @@
 }
 .social(@name, @content) {
 	.social-@{name} {
-		&:before {
+		&:before,
+		&-color:before, {
 			content: @content;
+		}
+		&-color {
+			color: @brand-primary;
+		}
+	}
+}
+.social(@name, @content, @color) {
+	.social-@{name} {
+		&:before,
+		&-color:before {
+			content: @content;
+		}
+		&-color {
+			color: @color;
 		}
 	}
 }

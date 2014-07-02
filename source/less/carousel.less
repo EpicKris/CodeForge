@@ -1,0 +1,158 @@
+//
+// Carousel
+// --------------------------------------------------
+
+#body-carousel {
+	padding-bottom: (@padding-large-vertical * 4);
+	color: @body-carousel-color;
+}
+
+
+
+// Navbar
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
+
+	> .container,
+	> .container-fluid {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.navbar {
+		padding-right: @padding-large-horizontal;
+		padding-left: @padding-large-horizontal;
+
+		.container,
+		.container-fluid {
+			width: auto;
+		}
+	}
+}
+
+@media (min-width: @screen-sm-min) {
+	.navbar-wrapper {
+		margin-top: (@padding-large-vertical * 2);
+
+		> .container,
+		> .container-fluid {
+			padding-right: @padding-large-horizontal;
+			padding-left: @padding-large-horizontal;
+		}
+
+		.navbar {
+			padding-right: 0;
+			padding-left: 0;
+			.border-top-radius(@border-radius-base);
+			.border-bottom-radius(@border-radius-base);
+		}
+	}
+}
+
+
+
+// Carousel
+.carousel {
+	height: @carousel-height;
+	margin-bottom: (@padding-large-vertical * 6);
+
+	.carousel-inner {
+		> .item {
+			height: @carousel-height;
+			background-color: @gray-light;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: auto 500px;
+
+			> img {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				min-width: 100%;
+				height: @carousel-height;
+			}
+
+			.carousel-caption {
+				z-index: 10;
+
+				p {
+					margin-bottom: (@padding-large-vertical * 2);
+					font-size: @font-size-large;
+					line-height: @line-height-base;
+				}
+			}
+		}
+	}
+}
+
+
+
+// Controls
+.carousel-control {
+	.icon-left,
+	.icon-right {
+		position: absolute;
+		top: 50%;
+		z-index: 5;
+		display: inline-block;
+	}
+	.icon-left {
+		left: 50%;
+		margin-left: -10px;
+	}
+	.icon-right {
+		right: 50%;
+		margin-right: -10px;
+	}
+}
+
+
+
+// Marketing
+.marketing {
+	.row {
+		margin-bottom: (@padding-large-vertical * 2);
+		.text-center();
+
+		h1,
+		h2 {
+			font-weight: normal;
+		}
+
+		p {
+			margin-right: @padding-small-horizontal;
+			margin-left: @padding-small-horizontal;
+		}
+	}
+}
+
+
+
+// Featurettes
+.featurette-divider {
+	margin: (@padding-large-vertical * 8) 0;
+}
+
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+@media (min-width: @screen-sm-min) {
+	.featurette-heading {
+		font-size: (@font-size-large * 3);
+	}
+}
+
+@media (min-width: @screen-md-min) {
+	.featurette-heading {
+		margin-top: (@padding-large-vertical * 12);
+	}
+}

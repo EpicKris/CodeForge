@@ -51,7 +51,7 @@
 		</div>
 
 		<!-- JS -->
-		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="/resources/js/bootstrap.min.js"></script>
 		<script src="/resources/js/codeforge.min.js"></script>
 		<?php

@@ -12,8 +12,9 @@ class Auth extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->database();
 		$this->load->helper('url');
-		$this->load->library('form_validation', 'session');
+		$this->load->library(array('form_validation', 'session'));
 		$this->load->model('auth_model');
 	}
 
@@ -26,7 +27,7 @@ class Auth extends CI_Controller {
 	 * @return void
 	 */
 	public function index() {
-		if ($this->session->userdata('user') !== FALSE) redirect('/');
+		if ($this->session->userdata('user') !== FALSE) redirect($this->auth_model->get_url());
 
 		if ($this->form_validation->run() !== FALSE) {
 			$this->result = $this->auth_model->verify_user($this->input->post('user'), $this->input->post('pass'));
@@ -35,7 +36,7 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('user', $this->input->post('user'));
 				if (is_array($this->result)) $this->session->set_userdata($this->result);
 
-				redirect('/');
+				redirect($this->auth_model->get_url());
 			}
 		}
 
@@ -51,13 +52,13 @@ class Auth extends CI_Controller {
 	 * @return void
 	 */
 	public function signin() {
-		if ($this->session->userdata('user') !== FALSE) redirect('/');
+		if ($this->session->userdata('user') !== FALSE) redirect($this->auth_model->get_url());
 
-		$this->load->view('auth/signin');
+		$this->load->view('web/auth/signin');
 	}
 
 	/**
-	 * Sign out for auth controller.
+	 * Sign out page for auth controller.
 	 * 
 	 * Maps to the following URL: example.com/auth/signout
 	 * 
@@ -67,7 +68,23 @@ class Auth extends CI_Controller {
 	public function signout() {
 		$this->session->sess_destroy();
 
-		redirect('/auth');
+		redirect('auth/signin');
+	}
+
+	/**
+	 * Sign up page for auth controller.
+	 * 
+	 * Maps to the following URL: example.com/auth/signup
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function signup() {
+		if ($this->form_validation->run() !== FALSE) {
+			$this->auth_model->auth_gen($this->input->post('user'), $this->input->post('pass1'));
+		}
+
+		$this->load->view('web/auth/signup');
 	}
 }
 

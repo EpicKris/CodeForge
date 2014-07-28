@@ -33,7 +33,7 @@
 					<div class="group">
 						<div class="form-group<?php if (form_error('user') !== '') echo ' has-error'; ?>">
 							<label for="user">Username</label>
-							<input type="text" name="user" class="form-control" id="user" placeholder="Username" required autofocus>
+							<input type="text" name="user" class="form-control" id="user" placeholder="Username" value="<?php echo set_value('username'); ?>" required autofocus>
 						</div>
 						<div class="form-group<?php if (form_error('pass') !== '') echo ' has-error'; ?>">
 							<label for="pass">Password</label>

@@ -5,6 +5,44 @@
 #body-carousel {
 	padding-bottom: (@padding-large-vertical * 4);
 	color: @body-carousel-color;
+
+
+
+	// Carousel
+	.carousel {
+		height: @carousel-height;
+		margin-bottom: (@padding-large-vertical * 6);
+
+		.carousel-inner {
+			> .item {
+				height: @carousel-height;
+				background-color: @gray-light;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: auto 500px;
+
+				> img {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					min-width: 100%;
+					height: @carousel-height;
+				}
+
+				.carousel-caption {
+					z-index: 10;
+
+					p {
+						margin-bottom: (@padding-large-vertical * 2);
+						font-size: @font-size-large;
+						line-height: @line-height-base;
+					}
+				}
+			}
+		}
+	}
 }
 
 
@@ -49,44 +87,6 @@
 			padding-left: 0;
 			.border-top-radius(@border-radius-base);
 			.border-bottom-radius(@border-radius-base);
-		}
-	}
-}
-
-
-
-// Carousel
-.carousel {
-	height: @carousel-height;
-	margin-bottom: (@padding-large-vertical * 6);
-
-	.carousel-inner {
-		> .item {
-			height: @carousel-height;
-			background-color: @gray-light;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: auto 500px;
-
-			> img {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				min-width: 100%;
-				height: @carousel-height;
-			}
-
-			.carousel-caption {
-				z-index: 10;
-
-				p {
-					margin-bottom: (@padding-large-vertical * 2);
-					font-size: @font-size-large;
-					line-height: @line-height-base;
-				}
-			}
 		}
 	}
 }

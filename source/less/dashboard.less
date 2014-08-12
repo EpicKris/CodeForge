@@ -4,13 +4,13 @@
 
 // Sidebar
 .sidebar {
+	.make-sm-column(2);
 	display: none;
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	z-index: 1000;
-	display: block;
 	padding: 20px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -50,11 +50,17 @@
 			color: @nav-sidebar-active-link-hover-color;
 			background-color: @nav-sidebar-active-link-hover-bg;
 		}
+
+		.icon:before {
+			font-weight: bold;
+		}
 	}
 }
 
 // Main
 .main {
+	.make-sm-column-offset(2);
+	.make-sm-column(10);
 	padding: (@padding-large-vertical * 2) (@padding-large-horizontal * 2);
 
 	.page-header {
